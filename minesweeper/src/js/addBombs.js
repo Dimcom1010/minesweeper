@@ -1,5 +1,5 @@
 import { getRandom } from "./random.js"
-export function addBombs(bombs, matrix) {
+export async function addBombs(bombs, matrix) {
     let iteration = bombs;
     const matrixW = matrix.length;
     const matrixH = matrix[0].length;
@@ -8,10 +8,10 @@ export function addBombs(bombs, matrix) {
         const y = getRandom(matrixH - 1);
         const selectMatrixPoint=matrix[x][y]
         if(!selectMatrixPoint){
-            matrix[x][y]=1;
+            matrix[x][y]='b';
             iteration--;
         }
     }
     return matrix
 }
-// Test complite
+//Text complited
