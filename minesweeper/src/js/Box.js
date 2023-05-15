@@ -17,6 +17,8 @@ export class Box {
     creater() {
         this.box = document.createElement('div');
         this.box.classList.add('box');
+        this.box.style.width=`${this.width}%`;
+        this.box.style.height=`${this.height}%`;
         const saveThis=this
         this.box.addEventListener('contextmenu', function(event) {
             event.preventDefault();
