@@ -1,9 +1,9 @@
 
-export async function matrixInfoFiller(matrixInfo,matrixWithBombs ) {
-
+export function matrixInfoFiller(matrixInfo,matrixWithBombs ) {
     matrixWithBombs.forEach((y,indexY) => {
         y.forEach((x,indexX) => {
-            if (matrixWithBombs[indexX][indexY]==="bomb"){
+            
+            if (matrixWithBombs[indexY][indexX]==="bomb"){
                 matrixInfo[indexY][indexX]++;
                 matrixInfo[indexY][indexX+1]++;
                 matrixInfo[indexY][indexX+2]++;
@@ -13,6 +13,7 @@ export async function matrixInfoFiller(matrixInfo,matrixWithBombs ) {
                 matrixInfo[indexY+2][indexX]++;
                 matrixInfo[indexY+2][indexX+1]++;
                 matrixInfo[indexY+2][indexX+2]++;
+            }else {
             }
         })
     });
