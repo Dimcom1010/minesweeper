@@ -1,22 +1,24 @@
 import { clickCheker } from "./clickCheker.js"
 import { clickMarker } from "./clickMarker.js"
 import { matrixInfoBombsAround } from "./index.js"
+
+import { multiOpener } from "./multiOpener.js"
+
 export class Box {
     isOpen = false;
     isMark = false;
-
     constructor(width, height, positionX, positionY) {
-        // console.log("constr",width, height,positionX,positionY)
         this.width = width;
         this.height = height;
         this.positionX = positionX;
         this.positionY = positionY;
     }
 
-
     creater() {
         this.box = document.createElement('div');
         this.box.classList.add('box');
+        this.box.setAttribute('x', this.positionX)
+        this.box.setAttribute('y', this.positionY)
         this.box.style.width=`${this.width}%`;
         this.box.style.height=`${this.height}%`;
         const saveThis=this
@@ -25,7 +27,6 @@ export class Box {
             saveThis.clickRightButton()
          }, true); 
         this.box.addEventListener('click', this.clickLeftButton.bind(this));
-
         return this.box;
     }
 
@@ -44,25 +45,24 @@ export class Box {
     clickLeftButton() {
         if (!this.isOpent && !this.isMark) {
             this.openBox()
+            
 
         }
     }
 
-
     openBox() {
-        console.log('isOpent', this.positionX, this.positionY);
         this.isOpent = true;
         const isBomb = clickCheker(this.positionX, this.positionY)
-
         if (isBomb) {
             this.box.classList.add('box_mina');
             console.log("КОНЕЦ");
         } else {
             this.box.classList.add('box_clear');
-            const bombsAround = matrixInfoBombsAround[this.positionX][this.positionY];
+            const bombsAround = matrixInfoBombsAround[this.positionY][this.positionX];
             this.box.innerText = bombsAround;
-            console.log("УДАЧА");
             clickMarker(this.positionX, this.positionY);
+            const boxCount=matrixInfoBombsAround[this.positionY][this.positionX]
+            !boxCount && multiOpener(this.positionX, this.positionY )
         }
     }
 
