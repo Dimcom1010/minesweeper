@@ -7,7 +7,6 @@ export function clickMarker(x, y, matrix){
         return matrix;
     }else{
         matrixWithBombs[y][x]="c";
-        console.log('matrixWithBombs',matrixWithBombs)
     }
 
 }

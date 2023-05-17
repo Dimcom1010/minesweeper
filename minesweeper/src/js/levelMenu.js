@@ -8,7 +8,7 @@ export function levelMenu() {
         const levelItem= document.createElement('div');
         levelItem.classList.add('button');
         levelItem.innerText=e.name;
-        levelItem.addEventListener('click',()=>config.difficultyLevel(e.value))
+        levelItem.addEventListener('click',()=>config.difficultyLevel(e))
         levelMenu.appendChild(levelItem)
 
     })
