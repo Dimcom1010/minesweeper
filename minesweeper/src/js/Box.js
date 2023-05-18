@@ -4,7 +4,8 @@ import { variables } from "./variables.js";
 import { updateClickCounter } from "./init.js";
 import { multiOpener } from "./multiOpener.js"
 import { checkWin } from "./checkWin.js"
-import {start, gameOver, matrixInfoBombsAround } from "./index.js"
+import { setResult, savelocalStorage } from "./resultTable.js"
+import { start, modal, gameOver, matrixInfoBombsAround } from "./index.js"
 
 export class Box {
     isOpen = false;
@@ -76,8 +77,11 @@ export class Box {
             clickMarker(this.positionX, this.positionY);
             const boxCount = matrixInfoBombsAround[this.positionY][this.positionX]
             !boxCount && multiOpener(this.positionX, this.positionY)
-
-            checkWin()
+            if (checkWin()) {
+                setResult()
+                savelocalStorage()
+                modal.openWinMenu()
+            }
         }
     }
 

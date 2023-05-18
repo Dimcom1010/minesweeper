@@ -34,7 +34,7 @@ export function init(countBoxWidth, countBoxHeight, matrix) {
 
     const resultComplexity = document.createElement('div');
     resultComplexity.classList.add('result__level');
-    resultComplexity.innerText = `Сложность: ${config.level}`;
+    resultComplexity.innerText = `Сложность: ${config.level.name}`;
     result.appendChild(resultComplexity)
 
     const resultClicks = document.createElement('div');
@@ -62,5 +62,5 @@ export function init(countBoxWidth, countBoxHeight, matrix) {
 
 export function updateClickCounter(){
     const clickCounter = document.querySelector('.result__clicks');
-    clickCounter.innerText = `Количество кликов: ${variables.clickCounter}`;
+    clickCounter && (clickCounter.innerText = `Количество кликов: ${variables.clickCounter}`);
 }

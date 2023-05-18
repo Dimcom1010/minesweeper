@@ -7,9 +7,11 @@ import { Modal } from "./Modal.js";
 import { config } from "./config.js";
 import { variables } from "./variables.js";
 import { addMenuButton } from "./menuButton.js";
+import { localStorage } from "./localStorage.js";
 import { groupZeroCoordinatesWithNeighbors } from "./groupZeroCoordinates.js";
 
 console.log('START');
+localStorage()
 
 export let modal = new Modal
 modal.init()
