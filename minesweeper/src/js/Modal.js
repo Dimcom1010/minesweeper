@@ -1,5 +1,6 @@
 import {mainMenu} from "./mainMenu.js"
 import {endMenu} from "./endMenu.js"
+import {winMenu} from "./winMenu.js"
 import {variables} from "./variables.js"
 export class Modal{
     isOpenMenu=false
@@ -40,6 +41,13 @@ export class Modal{
         back.classList.remove('back_hidden');
         modal.classList.remove('modal_hidden');
         this.addContent(endMenu())
+    }
+    openWinMenu(){
+        const back = document.querySelector('.back');
+        const modal = document.querySelector('.modal');
+        back.classList.remove('back_hidden');
+        modal.classList.remove('modal_hidden');
+        this.addContent(winMenu())
     }
     close() {
         this.clearContent()

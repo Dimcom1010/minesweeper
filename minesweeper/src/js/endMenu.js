@@ -3,8 +3,6 @@ import { resultMenu } from "./resultMenu.js"
 import { mainMenu } from "./mainMenu.js"
 
 export function endMenu() {
-    console.log('endMenu');
-
     const endMenu = document.createElement('div');
     endMenu.classList.add('maim');
 
