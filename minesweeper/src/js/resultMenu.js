@@ -1,5 +1,6 @@
 import { modal } from "./index.js"
 import { mainMenu } from "./mainMenu.js"
+import { table } from "./table.js"
 export function resultMenu() {
     const resultMenu = document.createElement('div');
     resultMenu.classList.add('maim');
@@ -11,7 +12,13 @@ export function resultMenu() {
     resultMenu.appendChild(resultHader)
 
     const resultBody = document.createElement('div');
+
+
+
+    
     resultBody.classList.add('maim__body');
+
+    resultBody.appendChild(table())
     resultMenu.appendChild(resultBody)
 
     const resultFooter = document.createElement('div');
