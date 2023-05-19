@@ -1,50 +1,46 @@
 import { getResult } from "./resultTable.js";
-import { resultTable } from "./resultTable.js";
 export function table() {
-    const table = document.createElement("table");
-    const tr = document.createElement("tr");
-    const thName = document.createElement("th");
-    const thClick = document.createElement("th");
-    const thSec = document.createElement("th");
-    const thLevel = document.createElement("th");
+  const table = document.createElement("table");
+  const tr = document.createElement("tr");
+  const thName = document.createElement("th");
+  const thClick = document.createElement("th");
+  const thSec = document.createElement("th");
+  const thLevel = document.createElement("th");
 
-    thName.innerText = "имя";
-    tr.appendChild(thName);
+  thName.innerText = "Name";
+  tr.appendChild(thName);
 
-    thClick.innerText = "клики";
-    tr.appendChild(thClick);
+  thClick.innerText = "clicks";
+  tr.appendChild(thClick);
 
-    thSec.innerText = "сек.";
-    tr.appendChild(thSec);
+  thSec.innerText = "sec.";
+  tr.appendChild(thSec);
 
-    thLevel.innerText = "сложность";
-    tr.appendChild(thLevel);
+  thLevel.innerText = "level";
+  tr.appendChild(thLevel);
 
+  table.appendChild(tr);
+  for (let x = 4; x >= 1; x--) {
+    if (getResult(x)?.length) {
+      getResult(x).forEach((e) => {
+        const tr = document.createElement("tr");
+        const thName = document.createElement("td");
+        const thClick = document.createElement("td");
+        const thLevel = document.createElement("td");
+        const thSec = document.createElement("td");
+        thName.innerText = e.name;
+        tr.appendChild(thName);
+        thClick.innerText = e.result;
+        tr.appendChild(thClick);
+        thSec.innerText = `${e.secCount}s`;
+        tr.appendChild(thSec);
+        thLevel.innerText = e.levelName;
+        tr.appendChild(thLevel);
 
-
-    table.appendChild(tr);
-    for (let x = 1; x <= 4; x++) {
-        if (getResult(x)?.length) {
-            getResult(x).forEach((e) => {
-                const tr = document.createElement("tr");
-                const thName = document.createElement("td");
-                const thClick = document.createElement("td");
-                const thLevel = document.createElement("td");
-                const thSec = document.createElement("td");
-                thName.innerText = e.name;
-                tr.appendChild(thName);
-                thClick.innerText = e.result;
-                tr.appendChild(thClick);
-                thSec.innerText = `${e.secCount}c`;
-                tr.appendChild(thSec);
-                thLevel.innerText = e.levelName;
-                tr.appendChild(thLevel);
-
-                table.appendChild(tr);
-
-            });
-        }
+        table.appendChild(tr);
+      });
     }
+  }
 
-    return table;
+  return table;
 }

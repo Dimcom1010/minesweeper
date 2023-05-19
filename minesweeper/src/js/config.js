@@ -7,10 +7,10 @@ export const config = {
     bombs: 20,
     level: { name: "", value: 0,info:'' },
     levelConfinArray: [
-        { name: "Для тестов ", value: 1,info:'(5x5 2 бомбы)' },
-        { name: "Лёгкий ", value: 2,info:'(10x10 10 бомб)' },
-        { name: "Средний ", value: 3,info:'(15x15 30 бомб)' },
-        { name: "Тяжёлый ", value: 4 ,info:'(20x20 100 бомб)'},
+        { name: "Testing ", value: 1,info:'(5x5 2 бомбы)' },
+        { name: "Easy", value: 2,info:'(10x10 10 бомб)' },
+        { name: "Medium ", value: 3,info:'(15x15 30 бомб)' },
+        { name: "Hard ", value: 4 ,info:'(20x20 100 бомб)'},
     ],
     difficultyLevel: (levet) => _setDifficultyLevel(levet),
 };
@@ -37,7 +37,7 @@ function _setDifficultyLevel(levet) {
     }
     config.level.name=config.levelConfinArray[levet.value-1].name;
     config.level.value=levet.value;
-    config.level.info= `(${config.width}X${config.height} ${config.bombs} бомб )`
+    config.level.info= `(${config.width}X${config.height} ${config.bombs} bombs )`
     variables.clickCounter = 0;
     updateClickCounter();
     selectLevel();
@@ -48,8 +48,8 @@ export const savelocalUser = () =>
 export const loadlocalStorageUser = () => {
     const userNamelocalStorage = JSON.parse(
         localStorage.getItem("minesweeperUser")
-    );
+    )
     if (userNamelocalStorage) {
         variables.userName = userNamelocalStorage;
-    }
+    };
 };

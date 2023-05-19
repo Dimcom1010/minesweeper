@@ -1,21 +1,15 @@
-import { config} from "./config.js";
+import { config } from "./config.js";
 export function levelMenu() {
+  const levelMenu = document.createElement("div");
+  levelMenu.classList.add("level");
 
-    const levelMenu = document.createElement('div');
-    levelMenu.classList.add('level');
-    
-    config.levelConfinArray.forEach(e=>{
-        const levelItem= document.createElement('div');
-        levelItem.classList.add('button');
-        levelItem.innerText=`${e.name} ${e.info}`;
-        levelItem.addEventListener('click',()=>config.difficultyLevel(e))
-        levelMenu.appendChild(levelItem)
+  config.levelConfinArray.forEach((e) => {
+    const levelItem = document.createElement("div");
+    levelItem.classList.add("button");
+    levelItem.innerText = `${e.name} ${e.info}`;
+    levelItem.addEventListener("click", () => config.difficultyLevel(e));
+    levelMenu.appendChild(levelItem);
+  });
 
-    })
-
-
-
-    
-    return levelMenu
+  return levelMenu;
 }
-

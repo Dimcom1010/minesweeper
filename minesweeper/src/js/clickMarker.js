@@ -8,6 +8,4 @@ export function clickMarker(x, y, matrix){
     }else{
         matrixWithBombs[y][x]="c";
     }
-
 }
-//Text complited

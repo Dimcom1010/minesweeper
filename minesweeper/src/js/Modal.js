@@ -25,6 +25,7 @@ export class Modal{
         },true)
 
         back.appendChild(cross)
+        modal.appendChild(cross)
         back.appendChild(modal)
         this.crossDisable()
     }

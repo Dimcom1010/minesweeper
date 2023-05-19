@@ -1,37 +1,34 @@
-import { modal } from "./index.js"
-import { mainMenu } from "./mainMenu.js"
-import { table } from "./table.js"
+import { modal } from "./index.js";
+import { mainMenu } from "./mainMenu.js";
+import { table } from "./table.js";
 export function resultMenu() {
-    const resultMenu = document.createElement('div');
-    resultMenu.classList.add('maim');
-    
+  const resultMenu = document.createElement("div");
+  resultMenu.classList.add("maim");
 
-    const resultHader = document.createElement('div');
-    resultHader.classList.add('maim__header');
-    resultHader.innerText='Результаты'
-    resultMenu.appendChild(resultHader)
+  const resultHader = document.createElement("div");
+  resultHader.classList.add("maim__header");
+  resultHader.innerText = "Results table";
+  resultMenu.appendChild(resultHader);
 
-    const resultBody = document.createElement('div');
+  const resultBody = document.createElement("div");
 
+  resultBody.classList.add("maim__body");
 
+  resultBody.appendChild(table());
+  resultMenu.appendChild(resultBody);
 
-    
-    resultBody.classList.add('maim__body');
+  const resultFooter = document.createElement("div");
+  resultFooter.classList.add("maim__footer");
 
-    resultBody.appendChild(table())
-    resultMenu.appendChild(resultBody)
+  const mainButton = document.createElement("div");
+  mainButton.classList.add("button");
+  mainButton.innerText = "Main menu";
+  mainButton.addEventListener("click", () => {
+    modal.addContent(mainMenu());
+  });
+  resultFooter.appendChild(mainButton);
 
-    const resultFooter = document.createElement('div');
-    resultFooter.classList.add('maim__footer');
+  resultMenu.appendChild(resultFooter);
 
-    const mainButton = document.createElement('div');
-    mainButton.classList.add('button');
-    mainButton.innerText='Основное меню';
-    mainButton.addEventListener('click',()=>{modal.addContent(mainMenu())})
-    resultFooter.appendChild(mainButton)
-
-    resultMenu.appendChild(resultFooter)
-    
-    return resultMenu
+  return resultMenu;
 }
-

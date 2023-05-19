@@ -9,12 +9,11 @@ export async function addBombs(bombs, matrix) {
     while (iteration) {
         const x = getRandom(matrixW );
         const y = getRandom(matrixH );
-        const selectMatrixPoint=matrix[x][y]
+        const selectMatrixPoint=matrix[x][y];
         if(!selectMatrixPoint){
             matrix[x][y]='bomb';
             iteration--;
         }
     }
-    return matrix
-}
-//Text complited
+    return matrix;
+};
