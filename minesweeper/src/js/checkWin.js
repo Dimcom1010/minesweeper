@@ -1,6 +1,6 @@
+import { config } from "./config.js";
 
-import { matrixWithBombs } from "./index.js"
-
-export const checkWin=()=> !matrixWithBombs.reduce((acc,curr)=>[...acc,...curr],[]).includes(0)
-
-
+export const checkWin = () => {
+    const conunt = document.querySelectorAll(".box_clear");
+    return conunt.length === config.height * config.height - config.bombs;
+};
