@@ -4,7 +4,8 @@ import { variables } from "./variables.js";
 import { updateClickCounter } from "./init.js";
 import { multiOpener } from "./multiOpener.js";
 import { checkWin } from "./checkWin.js";
-import { setResult, savelocalStorage } from "./resultTable.js";
+import { setResult } from "./resultTable.js";
+import { audioClick, } from "./audio.js";
 import { start, modal, gameOver, matrixInfoBombsAround } from "./index.js";
 
 export class Box {
@@ -38,6 +39,8 @@ export class Box {
     }
 
     clickRightButton() {
+        const audio = 'src/audio/click.mp3';
+        audioClick();
         if (!variables.isNotClick) {
             !this.isOpent && (this.isMark = !this.isMark);
             if (!this.isOpent) {
@@ -51,6 +54,8 @@ export class Box {
     }
 
     clickLeftButton() {
+        const audio = 'src/audio/click.mp3';
+        audioClick();
         if (variables.isNotClick) {
             variables.isNotClick = false;
             variables.firstclickX = this.positionX;
@@ -89,4 +94,5 @@ export class Box {
             }
         }
     }
+
 }

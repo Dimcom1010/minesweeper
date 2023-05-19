@@ -1,14 +1,7 @@
 import { variables } from "./variables.js";
 import { config } from "./config.js";
 
-export let resultTable = [
-    {
-        name: "name",
-        result: 10,
-        level: 1,
-        levelName: "такое ",
-    },
-];
+export let resultTable = [];
 export let isSetResult = { value: false };
 
 export const getResult = (level) =>

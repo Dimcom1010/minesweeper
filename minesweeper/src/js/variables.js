@@ -5,4 +5,5 @@ export const variables = {
     firstclickX: 1,
     firstclickY: 1,
     isNotClick: true,
+    isAudio: false,
 };
