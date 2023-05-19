@@ -9,6 +9,7 @@ import { variables } from "./variables.js";
 import { addMenuButton } from "./menuButton.js";
 import { localStorage } from "./localStorage.js";
 import { isSetResult } from "./resultTable.js";
+import { startDateCounter,endDateCounter } from "./dateCounter.js";
 import { groupZeroCoordinatesWithNeighbors } from "./groupZeroCoordinates.js";
 
 console.log("START");
@@ -32,6 +33,7 @@ export async function selectLevel() {
 
 export async function start() {
     setTimeout(() => firstClick(), 100);
+    startDateCounter()
     isSetResult.value = false;
     initMatrix = await matrixCreater(config.width, config.height);
     init(config.width, config.height, initMatrix);
@@ -54,14 +56,17 @@ export function gameOver() {
     console.log("КОНЕЦ");
     variables.isNotClick = true;
     variables.isPlay = false;
+    modal.crossDisable()
     modal.openEndMenu();
     variables.clickCounter = 0;
     updateClickCounter();
+    endDateCounter();
 }
 
 function firstClick() {
     variables.isPlay = true;
     addMenuButton();
+    modal.crossActive()
     const constboxs = document.querySelector(
         `div[x="${variables.firstclickX}"][y="${variables.firstclickY}"]`
     );

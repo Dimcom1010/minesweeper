@@ -5,7 +5,8 @@ import { updateClickCounter } from "./init.js";
 import { multiOpener } from "./multiOpener.js";
 import { checkWin } from "./checkWin.js";
 import { setResult } from "./resultTable.js";
-import { audioClick, } from "./audio.js";
+import { endDateCounter } from "./dateCounter.js";
+import { audioClick,audioBoom,audioWin } from "./audio.js";
 import { start, modal, gameOver, matrixInfoBombsAround } from "./index.js";
 
 export class Box {
@@ -75,7 +76,10 @@ export class Box {
         const isBomb = clickCheker(this.positionX, this.positionY);
         if (isBomb) {
             this.box.classList.add("box_mina");
-            gameOver();
+            
+            setTimeout(() => audioBoom(), 200);
+            setTimeout(() => gameOver(), 1500);
+            
         } else {
             this.box.classList.add("box_clear");
             const bombsAround =
@@ -87,9 +91,10 @@ export class Box {
             !boxCount && multiOpener(this.positionX, this.positionY);
 
             if (checkWin()) {
-                console.log("checkWin", variables.clickCounter);
                 setTimeout(() => setResult(), 100);
-
+                setTimeout(() => audioWin(), 400);
+                endDateCounter()
+                modal.crossDisable();
                 modal.openWinMenu();
             }
         }

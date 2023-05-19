@@ -7,7 +7,7 @@ export function levelMenu() {
     config.levelConfinArray.forEach(e=>{
         const levelItem= document.createElement('div');
         levelItem.classList.add('button');
-        levelItem.innerText=e.name;
+        levelItem.innerText=`${e.name} ${e.info}`;
         levelItem.addEventListener('click',()=>config.difficultyLevel(e))
         levelMenu.appendChild(levelItem)
 

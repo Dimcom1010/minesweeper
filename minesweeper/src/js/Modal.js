@@ -26,7 +26,22 @@ export class Modal{
 
         back.appendChild(cross)
         back.appendChild(modal)
+        this.crossDisable()
     }
+
+    crossActive(){
+        const cross =document.querySelector('.cross')
+        if(cross.classList.contains('cross_disable')){
+            cross.classList.remove('cross_disable')
+        }
+    }
+    crossDisable(){
+        const cross =document.querySelector('.cross')
+        if(!cross.classList.contains('cross_disable')){
+            cross.classList.add('cross_disable')
+        }
+    }
+
     open() {
         const back = document.querySelector('.back');
         const modal = document.querySelector('.modal');
