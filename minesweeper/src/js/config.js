@@ -1,14 +1,7 @@
-import {
-    selectLevel,
-    matrixWithFirstClick,
-    matrixWithBombs,
-    matrixInfoBombsAround,
-    matrixZerroMapWithNeighbors,
-} from "./index.js";
+import { selectLevel } from "./index.js";
 import { variables } from "./variables.js";
 import { updateClickCounter } from "./init.js";
 export const config = {
-    userName: "User",
     width: 10,
     height: 10,
     bombs: 20,
@@ -53,18 +46,13 @@ function _setDifficultyLevel(levet) {
     selectLevel();
 }
 
-const configData = {
-    config: {
-        userName: config.userName,
-        width: config.width,
-        height: config.height,
-        bombs: config.bombs,
-        level: { name: config.level.name, value: config.level.value },
-    },
-    matrixs: {
-        // matrixWithFirstClick: JSON.parse(JSON.stringify(matrixWithFirstClick)),
-        // matrixWithBombs: JSON.parse(JSON.stringify(matrixWithBombs)),
-        // matrixInfoBombsAround: JSON.parse(JSON.stringify(matrixInfoBombsAround)),
-        // matrixZerroMapWithNeighbors: JSON.parse(JSON.stringify(matrixZerroMapWithNeighbors)),
-    },
+export const savelocalUser = () =>
+    localStorage.setItem("minesweeperUser", JSON.stringify(variables.userName));
+export const loadlocalStorageUser = () => {
+    const userNamelocalStorage = JSON.parse(
+        localStorage.getItem("minesweeperUser")
+    );
+    if (userNamelocalStorage) {
+        variables.userName = userNamelocalStorage;
+    }
 };

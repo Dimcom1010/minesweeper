@@ -16,7 +16,6 @@ export function table() {
     thLevel.innerText = "сложность";
     tr.appendChild(thLevel);
     table.appendChild(tr);
-    console.log("resultTable", resultTable);
     for (let x = 1; x <= 4; x++) {
         if (getResult(x)?.length) {
             getResult(x).forEach((e) => {

@@ -8,7 +8,7 @@ import { config } from "./config.js";
 import { variables } from "./variables.js";
 import { addMenuButton } from "./menuButton.js";
 import { localStorage } from "./localStorage.js";
-import { resultTable } from "./resultTable.js";
+import { isSetResult } from "./resultTable.js";
 import { groupZeroCoordinatesWithNeighbors } from "./groupZeroCoordinates.js";
 
 console.log("START");
@@ -32,6 +32,7 @@ export async function selectLevel() {
 
 export async function start() {
     setTimeout(() => firstClick(), 100);
+    isSetResult.value = false;
     initMatrix = await matrixCreater(config.width, config.height);
     init(config.width, config.height, initMatrix);
     modal.init();

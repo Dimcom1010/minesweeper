@@ -9,21 +9,27 @@ export let resultTable = [
         levelName: "такое ",
     },
 ];
+export let isSetResult = { value: false };
 
 export const getResult = (level) =>
     resultTable
         .filter((e) => e.level == level)
         .sort((a, b) => a.clickCounter - b.clickCounter);
 export const setResult = () => {
-    resultTable = [
-        ...resultTable,
-        {
-            name: config.userName,
-            result: variables.clickCounter,
-            level: config.level.value,
-            levelName: config.level.name,
-        },
-    ];
+    if (!isSetResult.value) {
+        resultTable = [
+            ...resultTable,
+            {
+                name: variables.userName,
+                result: variables.clickCounter,
+                level: config.level.value,
+                levelName: config.level.name,
+            },
+        ];
+        isSetResult.value = true;
+    }
+
+    savelocalStorage();
 };
 
 export const savelocalStorage = () =>
@@ -35,7 +41,6 @@ export const loadlocalStorageResult = () => {
     if (resultTablelocalStorage) {
         resultTable = resultTablelocalStorage;
     }
-    console.log("resultTable1", resultTable);
 };
 
 export function getNameLevel(nuber) {
