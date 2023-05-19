@@ -5,6 +5,18 @@
     --main-button-color: rgb(72, 130, 223);
     --font: 30px;
 }
+@media (max-width: 550px) {
+    body {
+        --font: 20px;   
+
+    }
+  }
+@media (max-width: 400px) {
+    body {
+        --font: 15px;   
+
+    }
+  }
 .body {
     width: 100%;
     height: 100%;
@@ -12,8 +24,8 @@
     font-family: "Lato", sans-serif;
 }
 .container {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 800px;
+    max-height: 800px;
     width: 90vw;
     height: 90vw;
 
@@ -44,6 +56,7 @@
     display: block;
     border-radius: 5px;
     background-color: var(--main-button-color);
+    color: var(--main-bg-modal-color);
     padding: 10px 20px;
     font-size: var(--font);
     cursor: pointer;
@@ -71,7 +84,11 @@
     background-repeat: no-repeat;
 }
 .box_mina {
-    background-color: rgb(255, 132, 132);
+
+    background-image: url(src/img/mina.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
 }
 .box:hover {
     background-color: rgb(157, 157, 157);
@@ -100,6 +117,7 @@
     position: absolute;
     width: 80%;
     height: 80%;
+    max-width: 800px;
     background-color: var(--main-bg-modal-color);
     transform: translate(-50%, -50%);
     top: 50%;
@@ -116,6 +134,9 @@
     height: 50px;
     width: 50px;
     z-index: 101;
+}
+.cross.cross_disable{
+    display: none;
 }
 .cross::after,
 .cross::before {
@@ -186,13 +207,13 @@ input.focused {
 }
 table {
     width: 100%;
-    font-size: var(--font);
+    font-size: calc(var(--font) - 40%) ;
     position: relative;
 }
 table tr:first-child {
     position: sticky;
     background-color: var(--main-bg-modal-color);
-    top: 0;
+    top: -1px;
 }
 td {
     text-align: center;
