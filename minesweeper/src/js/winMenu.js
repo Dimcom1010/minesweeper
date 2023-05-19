@@ -13,7 +13,7 @@ export function winMenu() {
     winMenu.appendChild(winHader)
     const resultHader = document.createElement('div');
     resultHader.classList.add('maim__result');
-    resultHader.innerText=`Ваш результат: ${variables.clickCounter}`
+    resultHader.innerText=`Результат: ${variables.clickCounter} кликов ${variables.secCount}с`
     winMenu.appendChild(resultHader)
 
     const winBody = document.createElement('div');

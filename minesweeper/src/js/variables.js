@@ -6,4 +6,7 @@ export const variables = {
     firstclickY: 1,
     isNotClick: true,
     isAudio: false,
+    dateStart:null,
+    dateEnd:null,
+    secCount:null,
 };

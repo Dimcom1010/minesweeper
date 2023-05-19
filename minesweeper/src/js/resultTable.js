@@ -4,19 +4,23 @@ import { config } from "./config.js";
 export let resultTable = [];
 export let isSetResult = { value: false };
 
-export const getResult = (level) =>
-    resultTable
-        .filter((e) => e.level == level)
-        .sort((a, b) => a.clickCounter - b.clickCounter);
+export const getResult = (level) => resultTable
+    .filter((e) => e.value == level)
+    .sort((a, b) => a.secCount - b.secCount);
+
+
+
 export const setResult = () => {
     if (!isSetResult.value) {
+        console.log('variables',JSON.parse(JSON.stringify(variables)))
         resultTable = [
             ...resultTable,
             {
                 name: variables.userName,
                 result: variables.clickCounter,
-                level: config.level.value,
+                value: config.level.value,
                 levelName: config.level.name,
+                secCount: variables.secCount,
             },
         ];
         isSetResult.value = true;
